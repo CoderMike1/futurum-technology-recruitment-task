@@ -15,21 +15,21 @@ public record AddNewCampaignRequest(
                List< @NotBlank(message = "Keyword can not be null or empty.")String> keywords,
 
                @NotNull(message="Bid amount field is mandatory.")
-               @Min(value=0, message="Bid amount value must be higher or equal 0.")
+               @Min(value=0, message="Bid amount value must be greater than or equal to 0.")
                Double bidAmount,
 
                @NotNull(message="Campaign fund field is mandatory.")
-               @Min(value=0, message="Campaign fund value must be higher or equal 0.")
+               @Min(value=0, message="Campaign fund value must be greater than or equal to 0.")
                Double fund,
 
-               @NotNull(message="Status field is mandatory.")
+               @NotNull(message="Status field is mandatory and can not be null.")
                Boolean status,
 
                @NotBlank(message="Town field can not be null or empty.")
                String town,
 
                @NotNull(message="Radius field is mandatory.")
-               //@Min(value=0,message="Radius value must be higher or equal 0.")
+               @Min(value=0,message="Radius value must be greater than or equal to 0.")
                Double radius
 ) {
 }

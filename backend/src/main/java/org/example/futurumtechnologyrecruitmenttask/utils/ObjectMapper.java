@@ -12,7 +12,7 @@ public class ObjectMapper {
                 c.getName(),
                 c.getKeywords(),
                 c.getBidAmount(),
-                c.getFund(),
+                c.getCampaignFund(),
                 c.isStatus(),
                 c.getTown(),
                 c.getRadius()
