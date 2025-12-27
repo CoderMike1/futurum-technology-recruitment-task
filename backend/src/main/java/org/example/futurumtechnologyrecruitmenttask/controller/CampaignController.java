@@ -4,7 +4,7 @@ package org.example.futurumtechnologyrecruitmenttask.controller;
 import jakarta.validation.Valid;
 import org.example.futurumtechnologyrecruitmenttask.dto.AddNewCampaignRequest;
 import org.example.futurumtechnologyrecruitmenttask.dto.CampaignResponse;
-import org.example.futurumtechnologyrecruitmenttask.dto.UpdateCampaignRequest;
+import org.example.futurumtechnologyrecruitmenttask.dto.EditCampaignRequest;
 import org.example.futurumtechnologyrecruitmenttask.service.CampaignService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,16 +32,16 @@ public class CampaignController {
         return ResponseEntity.status(HttpStatus.OK).body(records);
     }
 
-    @PostMapping()
+    @PostMapping("/add")
     public ResponseEntity<CampaignResponse> addNewCampaign(@Valid @RequestBody AddNewCampaignRequest newCampaignRequest){
         CampaignResponse c = campaignService.addCampaign(newCampaignRequest);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(c);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<CampaignResponse> updateCampaign(@PathVariable Long id, @RequestBody @Valid UpdateCampaignRequest updatedCampaign){
-        CampaignResponse cr = campaignService.updateCampaign(id, updatedCampaign);
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<CampaignResponse> editCampaign(@PathVariable Long id, @RequestBody @Valid EditCampaignRequest newCampaign){
+        CampaignResponse cr = campaignService.editCampaign(id, newCampaign);
 
         return ResponseEntity.status(HttpStatus.OK).body(cr);
     }

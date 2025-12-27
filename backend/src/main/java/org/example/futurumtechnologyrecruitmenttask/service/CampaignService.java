@@ -2,7 +2,7 @@ package org.example.futurumtechnologyrecruitmenttask.service;
 
 import org.example.futurumtechnologyrecruitmenttask.dto.AddNewCampaignRequest;
 import org.example.futurumtechnologyrecruitmenttask.dto.CampaignResponse;
-import org.example.futurumtechnologyrecruitmenttask.dto.UpdateCampaignRequest;
+import org.example.futurumtechnologyrecruitmenttask.dto.EditCampaignRequest;
 import org.example.futurumtechnologyrecruitmenttask.model.Campaign;
 import org.example.futurumtechnologyrecruitmenttask.repository.CampaignRepository;
 import org.example.futurumtechnologyrecruitmenttask.utils.ObjectMapper;
@@ -48,7 +48,7 @@ public class CampaignService {
 
     }
 
-    public CampaignResponse updateCampaign(Long id, UpdateCampaignRequest updatedCampaign){
+    public CampaignResponse editCampaign(Long id, EditCampaignRequest updatedCampaign){
 
         Campaign c = campaignRepository.findById(id).orElseThrow(()->new NoSuchElementException("Campaign with id '"+id+"' was not found."));
 
