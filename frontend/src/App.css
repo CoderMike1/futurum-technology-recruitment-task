@@ -1,42 +1,109 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: rgba(9, 9, 14, 0.64);
+    color: #111827;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.table-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 70px auto;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    overflow-x: auto;
 }
 
-.card {
-  padding: 2em;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
 }
 
-.read-the-docs {
-  color: #888;
+thead th {
+    background: #111827;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 14px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+tbody td {
+    padding: 12px 14px;
+    border-top: 1px solid #e5e7eb;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+tbody tr:hover {
+    background: #eef2ff;
+}
+
+.error-field{
+    color:red;
+    font-weight: bold;
+    text-align: center;
+    font-size:1.3rem;
+}
+.loading-field{
+    color:blue;
+    font-weight: bold;
+    text-align: center;
+    font-size:1.3rem;
+}
+.actions-column {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.actions-column button {
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #111827;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.actions-column button:hover{
+    background: #dc5b6e;
+    color:white
+}
+
+.add-record-button{
+    display: inline-flex;    
+    align-items: center;
+    justify-content: center;
+
+    margin: 14px auto 0;
+    width: auto;
+    min-width: 120px;
+
+    padding: 10px 14px;
+    border: 1px solid #4f46e5;
+    background: #4f46e5;
+    color: #ffffff;
+
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+
 }
