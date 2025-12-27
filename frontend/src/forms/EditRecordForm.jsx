@@ -19,6 +19,8 @@ const EditRecordForm = (props) =>{
 
     const update = (key)=> (e) => setForm(prevState => ({...prevState, [key]:e.target.value}))
 
+    const update_keywords = (key)=> (e) => setForm(prevState => ({...prevState, [key]:e.target.value.split(",")}))
+
 
     const [errorMessage,setErrorMessage] = useState(null)
 
@@ -62,7 +64,7 @@ const EditRecordForm = (props) =>{
                         <input
                             type="text"
                             value={form.keywords}
-                            onChange={update("keywords")}
+                            onChange={update_keywords("keywords")}
                             required={true}
                         />
                     </div>
