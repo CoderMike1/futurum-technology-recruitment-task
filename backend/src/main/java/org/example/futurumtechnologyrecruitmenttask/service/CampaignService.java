@@ -35,7 +35,7 @@ public class CampaignService {
                 newCampaign.name(),
                 newCampaign.keywords(),
                 newCampaign.bidAmount(),
-                newCampaign.fund(),
+                newCampaign.campaignFund(),
                 newCampaign.status(),
                 newCampaign.town(),
                 newCampaign.radius()

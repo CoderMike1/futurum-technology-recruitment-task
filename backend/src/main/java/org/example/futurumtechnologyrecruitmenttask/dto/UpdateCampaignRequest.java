@@ -3,6 +3,7 @@ package org.example.futurumtechnologyrecruitmenttask.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.example.futurumtechnologyrecruitmenttask.model.STATUS;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public record UpdateCampaignRequest(
         Double bidAmount,
         @Min(value=0)
         Double campaignFund,
-        Boolean status,
+        STATUS status,
         @Size(min=1, message="Name must have at least 1 letter.")
         String town,
         @Min(value=0, message="Radius field value must be greater than or equal to 0.")

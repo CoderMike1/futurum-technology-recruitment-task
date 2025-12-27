@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import org.example.futurumtechnologyrecruitmenttask.model.STATUS;
 
 import java.util.List;
 
@@ -20,10 +21,10 @@ public record AddNewCampaignRequest(
 
                @NotNull(message="Campaign fund field is mandatory.")
                @Min(value=0, message="Campaign fund value must be greater than or equal to 0.")
-               Double fund,
+               Double campaignFund,
 
                @NotNull(message="Status field is mandatory and can not be null.")
-               Boolean status,
+               STATUS status,
 
                @NotBlank(message="Town field can not be null or empty.")
                String town,

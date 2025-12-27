@@ -21,13 +21,13 @@ public class Campaign {
 
     private double campaignFund;
 
-    private boolean status;
+    private STATUS status;
 
     private String town;
 
     private double radius;
 
-    public Campaign(String name, List<String> keywords, double bidAmount, double campaignFund, boolean status, String town, double radius) {
+    public Campaign(String name, List<String> keywords, double bidAmount, double campaignFund, STATUS status, String town, double radius) {
         this.name = name;
         this.keywords = keywords;
         this.bidAmount = bidAmount;
@@ -80,11 +80,11 @@ public class Campaign {
         this.campaignFund = campaignFund;
     }
 
-    public boolean isStatus() {
+    public STATUS isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(STATUS status) {
         this.status = status;
     }
 
