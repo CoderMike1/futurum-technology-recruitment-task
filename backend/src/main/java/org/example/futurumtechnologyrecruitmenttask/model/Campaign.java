@@ -27,6 +27,17 @@ public class Campaign {
 
     private double radius;
 
+    public Campaign(Long id, String name, List<String> keywords, double bidAmount, double campaignFund, STATUS status, String town, double radius) {
+        this.id = id;
+        this.name = name;
+        this.keywords = keywords;
+        this.bidAmount = bidAmount;
+        this.campaignFund = campaignFund;
+        this.status = status;
+        this.town = town;
+        this.radius = radius;
+    }
+
     public Campaign(String name, List<String> keywords, double bidAmount, double campaignFund, STATUS status, String town, double radius) {
         this.name = name;
         this.keywords = keywords;
