@@ -1,1 +1,70 @@
-recruitment task for futurum technology
+# TECHNICAL TASK FOR FUTURUM TECHNOLOGY RECRUITMENT PROCESS
+
+## Overview
+REST API for managing campaign information.
+
+Base URL:
+- Local: http://localhost:8080
+
+Content-Type:
+- Requests with body: application/json
+- ---
+
+## Create a campaign
+
+
+POST /api/campaigns/add
+
+Request body:
+```json
+{
+  "name":"Promo1",
+  "keywords":["toys","winter","christmas"],
+  "status":"OFF",
+  "campaignFund":5,
+  "radius":0,
+  "town":"Warsaw",
+  "bidAmount":1.5
+}
+```
+
+Response:
+- 201 Created
+
+---
+## Get all campaigns
+
+GET /api/campaigns
+
+Response:
+- 200 OK
+
+---
+## Update campaign
+PUT /api/campaigns/{id}
+
+Request body:
+```json
+{
+  "name":"Promo1",
+  "keywords":["toys","winter","christmas"],
+  "status":"OFF",
+  "campaignFund":5,
+  "radius":0,
+  "town":"Warsaw",
+  "bidAmount":1.5
+}
+```
+Notes: All fields are optional.
+
+Response:
+- 200 OK
+
+---
+
+## Delete campaign
+
+DELETE /api/campaigns/{id}
+
+Responses:
+- 204 No Content
