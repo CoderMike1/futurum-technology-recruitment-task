@@ -105,8 +105,15 @@ const AddRecordForm = (props) =>{
                             type="text"
                             value={town}
                             onChange={(e)=>setTown(e.target.value)}
+                            list="town-options"
                             required={true}
                         />
+
+                        <datalist id="town-options">
+                            {props.townsList.map((town,index)=>(
+                                <option key={index} value={town}/>
+                            ))}
+                        </datalist>
                     </div>
                     <div className="form-item">
                         <label>Radius</label>

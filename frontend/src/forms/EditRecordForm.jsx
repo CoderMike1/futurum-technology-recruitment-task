@@ -3,19 +3,27 @@ import {useEffect, useState} from "react";
 const URL = "http://localhost:8080/api/campaigns"
 const EditRecordForm = (props) =>{
 
-    const [form,setForm] = useState({})
+    const [form,setForm] = useState({
+        name: props.selectedRecord.name ?? '',
+        keywords: props.selectedRecord.keywords ?? '',
+        bidAmount: props.selectedRecord.bidAmount ?? '',
+        campaignFund: props.selectedRecord.campaignFund ?? '',
+        status: props.selectedRecord.status ?? '',
+        town: props.selectedRecord.town ?? '',
+        radius: props.selectedRecord.radius ?? ''
+    })
 
-    useEffect(() => {
-        setForm({
-            name: props.selectedRecord.name,
-            keywords: props.selectedRecord.keywords,
-            bidAmount: props.selectedRecord.bidAmount,
-            campaignFund: props.selectedRecord.campaignFund ,
-            status: props.selectedRecord.status,
-            town: props.selectedRecord.town ,
-            radius: props.selectedRecord.radius
-        });
-    }, [props.selectedRecord]);
+    // useEffect(() => {
+    //     setForm({
+    //         name: props.selectedRecord.name ?? '',
+    //         keywords: props.selectedRecord.keywords ?? '',
+    //         bidAmount: props.selectedRecord.bidAmount ?? '',
+    //         campaignFund: props.selectedRecord.campaignFund ?? '',
+    //         status: props.selectedRecord.status ?? '',
+    //         town: props.selectedRecord.town ?? '',
+    //         radius: props.selectedRecord.radius ?? ''
+    //     });
+    // }, [props.selectedRecord]);
 
     const update = (key)=> (e) => setForm(prevState => ({...prevState, [key]:e.target.value}))
 
@@ -41,13 +49,13 @@ const EditRecordForm = (props) =>{
             props.setEditing(false)
         }
     }
-    
+    console.log(props.townsList)
     return (
         <div className="form-container">
 
             <div className="form-card">
                 <p className="error-field">{errorMessage}</p>
-                <h3 className="form-title">Add new campaign</h3>
+                <h3 className="form-title">Edit campaign</h3>
 
                 <form onSubmit={handleForm}>
                     <div className="form-item">
@@ -105,11 +113,18 @@ const EditRecordForm = (props) =>{
                     <div className="form-item">
                         <label>Town</label>
                         <input
+                            id="town"
                             type="text"
                             value={form.town}
                             onChange={update("town")}
+                            list="town-options"
                             required={true}
                         />
+                        <datalist id="town-options">
+                            {props.townsList.map((town,index)=>(
+                                <option key={index} value={town}/>
+                            ))}
+                        </datalist>
                     </div>
                     <div className="form-item">
                         <label>Radius</label>
@@ -123,7 +138,7 @@ const EditRecordForm = (props) =>{
                     </div>
 
                     <div className="form-actions">
-                        <button className="form-btn" onClick={()=>props.setAdding(false)}>Cancel</button>
+                        <button className="form-btn" onClick={()=>props.setEditing(false)}>Cancel</button>
                         <button className="form-btn primary" type="submit">Save</button>
                     </div>
                 </form>

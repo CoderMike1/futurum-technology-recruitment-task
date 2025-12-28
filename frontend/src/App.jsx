@@ -3,11 +3,12 @@ import {useEffect, useState} from "react";
 import AddRecordForm from "./forms/AddRecordForm.jsx";
 import EditRecordForm from "./forms/EditRecordForm.jsx";
 
-const URL = "http://localhost:8080/api/campaigns"
+const URL = "http://localhost:8080/api"
 
 function App() {
 
     const [campaignsList,setCampaignsList] = useState([])
+    const [townsList,setTownsList] = useState([])
 
     const [loading,setLoading] = useState(true);
     const [errorMessage,setErrorMessage] = useState(null);
@@ -17,9 +18,23 @@ function App() {
     const [selectedRecord,setSelectedRecord] = useState(null)
 
 
+    const loadTownsData = async () =>{
+        setErrorMessage(null)
+        const resp = await fetch(URL+"/towns",{
+            method:"GET"
+        })
+        if (!resp.ok){
+            setErrorMessage("Error while loading towns data.")
+        }
+        else{
+            const data = await resp.json();
+            setTownsList(data);
+        }
+    }
 
     const loadData = async ()=>{
-        const resp = await fetch(URL, {
+        setErrorMessage(null)
+        const resp = await fetch(URL+"/campaigns", {
             method:"GET"
         })
         if (!resp.ok){
@@ -33,7 +48,7 @@ function App() {
 
     const deleteRecord = async (id) =>{
         setErrorMessage(null)
-        const resp = await fetch(`${URL}/delete/${id}`,{
+        const resp = await fetch(`${URL}/campaigns/delete/${id}`,{
             method:"DELETE"
         })
         if(resp.status !== 204){
@@ -53,11 +68,18 @@ function App() {
     useEffect(() => {
 
         (async ()=>{
+            console.log("test")
             await loadData()
             setLoading(false)
         })()
 
     }, [adding,editing]);
+
+    useEffect(()=>{
+        (async ()=>{
+            await loadTownsData()
+        })()
+    },[])
 
 
 
@@ -65,8 +87,8 @@ function App() {
 
   return (
       <div className="main-container">
-          {editing && <EditRecordForm selectedRecord={selectedRecord} setEditing={setEditing}/>}
-          {adding && <AddRecordForm setAdding={setAdding}/>}
+          {editing && <EditRecordForm selectedRecord={selectedRecord} setEditing={setEditing} townsList={townsList}/>}
+          {adding && <AddRecordForm setAdding={setAdding} townsList={townsList}/>}
           <div className="table-container">
               <p className="loading-field">{loading && "Loading..."}</p>
               <p className="error-field">{errorMessage}</p>
