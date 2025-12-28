@@ -5,7 +5,7 @@ import org.example.futurumtechnologyrecruitmenttask.dto.CampaignResponse;
 import org.example.futurumtechnologyrecruitmenttask.dto.EditCampaignRequest;
 import org.example.futurumtechnologyrecruitmenttask.model.Campaign;
 import org.example.futurumtechnologyrecruitmenttask.repository.CampaignRepository;
-import org.example.futurumtechnologyrecruitmenttask.utils.ObjectMapper;
+import org.example.futurumtechnologyrecruitmenttask.utils.Mapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class CampaignService {
 
     public List<CampaignResponse> getAllCampaigns(){
 
-        List<CampaignResponse> records = campaignRepository.findAll().stream().map(c-> ObjectMapper.mapToResponse(c)).toList();
+        List<CampaignResponse> records = campaignRepository.findAll().stream().map(c-> Mapper.mapToResponse(c)).toList();
 
         return records;
 
@@ -43,7 +43,7 @@ public class CampaignService {
 
         Campaign p = campaignRepository.save(c);
 
-        return ObjectMapper.mapToResponse(p);
+        return Mapper.mapToResponse(p);
 
 
     }
@@ -77,7 +77,7 @@ public class CampaignService {
 
          campaignRepository.save(c);
 
-        return ObjectMapper.mapToResponse(c);
+        return Mapper.mapToResponse(c);
 
 
     }
