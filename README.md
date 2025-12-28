@@ -41,7 +41,7 @@ Response:
 
 ---
 ## Update campaign
-PUT /api/campaigns/{id}
+PUT /api/campaigns/edit/{id}
 
 Request body:
 ```json
@@ -64,7 +64,7 @@ Response:
 
 ## Delete campaign
 
-DELETE /api/campaigns/{id}
+DELETE /api/campaigns/delete/{id}
 
 Responses:
 - 204 No Content
