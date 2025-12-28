@@ -3,6 +3,10 @@
 ## Overview
 REST API for managing campaign information.
 
+### RUN APPLICATION
+ 1) Using Docker, run ```docker compose up``` in main directory , then open ```http://localhost:5173/```
+2) Locally, run ```npm run dev``` in frontend directory and run ```FuturumTechnologyRecruitmentTaskApplication.java```, then open ```http://localhost:5173/```
+
 Base URL:
 - Local: http://localhost:8080
 
