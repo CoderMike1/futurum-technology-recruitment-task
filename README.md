@@ -66,5 +66,5 @@ Response:
 
 DELETE /api/campaigns/delete/{id}
 
-Responses:
+Response:
 - 204 No Content
